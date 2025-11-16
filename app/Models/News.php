@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 class News extends Model
 {
-        protected $table = 'news';
+    protected $table = 'news';
     protected $primaryKey = 'new_id';
     public $incrementing = false;
     protected $keyType = 'string';
