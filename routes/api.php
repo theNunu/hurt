@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('news')->group(function () {
     Route::get('/', [NewsController::class, 'index']);
+    Route::get('get-titles', [NewsController::class, 'getTitles']);
     Route::get('/{new_id}', [NewsController::class, 'show']);
     Route::post('/', [NewsController::class, 'store']);
     Route::put('/{new_id}', [NewsController::class, 'update']);

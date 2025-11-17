@@ -33,4 +33,12 @@ class NewsRepositories
         $news = News::findOrFail($id);
         return $news->delete();
     }
+
+    public function syncCategories(string $newsId, array $catalogDetailIds): void
+    {
+        $news = News::findOrFail($newsId);
+
+        // La relación catalogDetails() está definida en el modelo News
+        $news->catalogDetails()->sync($catalogDetailIds);
+    }
 }

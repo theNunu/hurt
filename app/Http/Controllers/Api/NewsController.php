@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNewsRequest;
+use App\Models\News;
 use App\Services\NewsServices;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -49,5 +50,12 @@ class NewsController extends Controller
         $this->newsServices->delete($new_id);
 
         return response()->json(['message' => 'Deleted'], 200);
+    }
+
+    public function getTitles(){
+        // dd('rw');
+        $news = News::all();
+        return $news;
+        
     }
 }

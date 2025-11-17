@@ -28,6 +28,8 @@ class StoreNewsRequest extends FormRequest
             'title'     => 'required|string|max:255',
             'content'   => 'required|string',
             'is_active' => 'boolean',
+            'categorias'  => 'sometimes|array',
+            'categorias.*'=> 'integer|exists:catalog_details,catalog_detail_id',
         ];
     }
 
