@@ -37,4 +37,21 @@ class CatalogDetailServices
     {
         return $this->catalogsDetailRepositories->delete($id);
     }
+
+    //RUTAS GET ============
+
+       public function getNewsByCatalogDetail(int $id)
+    {
+        return $this->catalogsDetailRepositories->findWithNews($id);
+    }
+
+    public function listCatalogDetails()
+    {
+        return $this->catalogsDetailRepositories->getAllCatalogDetails();
+    }
+
+    public function listDetailsWithCatalog()
+    {
+        return $this->catalogsDetailRepositories->getCatalogsWithDetails();
+    }
 }

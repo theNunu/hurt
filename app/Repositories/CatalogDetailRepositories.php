@@ -35,4 +35,19 @@ class CatalogDetailRepositories
         $detail = CatalogDetails::findOrFail($id);
         return $detail->delete();
     }
+
+      public function findWithNews(int $catalogDetailId)
+    {
+        return CatalogDetails::with('news')->where('catalog_detail_id', $catalogDetailId)->first();
+    }
+
+    public function getAllCatalogDetails()
+    {
+        return CatalogDetails::withCount('news')->get();
+    }
+
+    public function getCatalogsWithDetails()
+    {
+        return CatalogDetails::with('catalog')->get();
+    }
 }

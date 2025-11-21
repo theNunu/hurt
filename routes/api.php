@@ -19,6 +19,7 @@ Route::prefix('news')->group(function () {
 
 Route::prefix('catalogs')->group(function () {
     Route::get('/', [CatalogController::class, 'index']);
+    
     Route::get('/{id}', [CatalogController::class, 'show']);
     Route::post('/', [CatalogController::class, 'store']);
     Route::put('/{id}', [CatalogController::class, 'update']);
@@ -27,6 +28,7 @@ Route::prefix('catalogs')->group(function () {
 
 Route::prefix('catalog-details')->group(function () {
     Route::get('/', [CatalogDetailController::class, 'index']);
+    Route::get('get-news/{catalog_detail_id}', [CatalogDetailController::class, 'getNews']);
     Route::get('/{id}', [CatalogDetailController::class, 'show']);
     Route::post('/', [CatalogDetailController::class, 'store']);
     Route::put('/{id}', [CatalogDetailController::class, 'update']);

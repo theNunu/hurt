@@ -48,4 +48,36 @@ class CatalogDetailController extends Controller
 
         return response()->json(['message' => 'Deleted'], 200);
     }
+
+    //RUTAS GET ============    =========
+
+
+    // GET: news relacionadas a un catalog_detail
+    public function getNews($catalog_detail_id)
+    {
+        $data = $this->catalogDetailsServices->getNewsByCatalogDetail($catalog_detail_id);
+
+        return response()->json([
+            "success" => true,
+            "data" => $data
+        ]);
+    }
+
+    // GET: listar todos los catalog_details (público)
+    // public function index()
+    // {
+    //     return response()->json([
+    //         "success" => true,
+    //         "data" => $this->catalogDetailsServices->listCatalogDetails()
+    //     ]);
+    // }
+
+    // GET: catalog_details con su catálogo padre
+    public function withCatalog()
+    {
+        return response()->json([
+            "success" => true,
+            "data" => $this->catalogDetailsServices->listDetailsWithCatalog()
+        ]);
+    }
 }
